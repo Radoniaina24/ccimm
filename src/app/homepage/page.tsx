@@ -1,10 +1,18 @@
+import { BANNER_SLIDES } from '@/lib/bannerData';
 import dynamic from 'next/dynamic';
 
 // Code Splitting - Dynamic imports with loading states
 const HeroSection = dynamic(() => import('@/components/home/HeroSection'), {
   loading: () => <div className="min-h-screen bg-primary-900 animate-pulse" />,
 });
-
+const Banner = dynamic(() => import('@/components/banner/Banner'), {
+  loading: () => (
+    <div className="h-screen bg-gradient-to-br from-primary-900 to-primary-800 animate-pulse flex items-center justify-center">
+      <div className="text-white text-xl">Chargement...</div>
+    </div>
+  ),
+  ssr: true,
+});
 const MissionSection = dynamic(() => import('@/components/home/MissionSection'), {
   loading: () => <div className="py-20 bg-gray-50 animate-pulse" />,
 });
@@ -66,6 +74,17 @@ function CTASection() {
 export default function HomePage() {
   return (
     <>
+      <Banner
+        slides={BANNER_SLIDES}
+        autoPlay={true}
+        autoPlayInterval={3000}
+        showArrows={true}
+        showDots={true}
+        showProgress={true}
+        height="full"
+        variant="default"
+        pauseOnHover={true}
+      />
       <HeroSection />
       <MissionSection />
       <ServicesPreview />

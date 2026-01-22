@@ -4,7 +4,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   {
     id: 'slide-1',
     image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002325/1_lj3ibk.jpg',
-    title: "IChambre de Commerce et d'Industrie",
+    title: "Chambre de Commerce et d'Industrie",
     subtitle: "Chambre de Commerce et d'Industrie",
     description:
       'Madagascar et Maurice partagent une identité forte, riche de cultures et de traditions. La CCIMM valorise ce capital culturel comme un levier de développement économique, touristique et créatif au service des deux nations.',

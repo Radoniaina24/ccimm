@@ -39,8 +39,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Playfair Display', 'serif'],
+       sans: ['Montserrat', 'system-ui', 'sans-serif'],
+      heading: ['Montserrat', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

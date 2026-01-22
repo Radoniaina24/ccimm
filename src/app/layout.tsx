@@ -12,7 +12,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Africa Business Expo',
+  title: 'CCIMM',
   description: 'A boilerplate project with Next.js and Tailwind CSS',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],

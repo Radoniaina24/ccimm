@@ -24,7 +24,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
       'L’industrie et le travail qualifié sont au cœur de la croissance durable. La CCIMM accompagne les entreprises industrielles et soutient la création d’emplois, la formation et la montée en compétences.',
     ctaText: "Guide d'investissement",
     ctaLink: '/invest',
-    alignment: 'left',
+    alignment: 'center',
     overlayOpacity: 0.5,
   },
   {
@@ -36,7 +36,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
       'La coopération est la clé d’une intégration économique réussie. La CCIMM agit comme un pont stratégique entre les acteurs économiques mauriciens et malgaches, favorisant des partenariats gagnant-gagnant.',
     ctaText: 'En savoir plus',
     ctaLink: '/invest',
-    alignment: 'right',
+    alignment: 'center',
     overlayOpacity: 0.55,
   },
   {
@@ -62,7 +62,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
       'L’agriculture est un pilier fondamental de la souveraineté économique. La CCIMM soutient une agriculture moderne, durable et créatrice de valeur, reliant producteurs, investisseurs et marchés.',
     ctaText: 'Voir les événements',
     ctaLink: '/events',
-    alignment: 'left',
+    alignment: 'center',
     overlayOpacity: 0.5,
   },
   {
@@ -74,7 +74,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
       'Investir aujourd’hui, c’est bâtir l’avenir. La CCIMM promeut les investissements responsables, les énergies renouvelables et les projets structurants au service d’une croissance durable.',
     ctaText: 'Voir les événements',
     ctaLink: '/events',
-    alignment: 'left',
+    alignment: 'center',
     overlayOpacity: 0.5,
   },
   {
@@ -86,7 +86,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
       'Le commerce structure les relations entre les nations. La CCIMM facilite les échanges, l’export-import et la logistique, tout en valorisant l’excellence et l’innovation à travers des initiatives de reconnaissance (Awards) contribuant au rayonnement économique de Maurice et de Madagascar.',
     ctaText: 'Voir les événements',
     ctaLink: '/events',
-    alignment: 'left',
+    alignment: 'center',
     overlayOpacity: 0.5,
   },
 ];

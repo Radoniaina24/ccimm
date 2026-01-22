@@ -285,35 +285,13 @@ export default function Banner({
     return `${baseClasses} ${duration} opacity-0 translate-y-8`;
   };
 
-  const getAlignmentClasses = (alignment: string = 'center') => {
-    switch (alignment) {
-      case 'left':
-        return 'items-start text-left';
-      case 'right':
-        return 'items-end text-right';
-      default:
-        return 'items-center text-center';
-    }
-  };
-
-  const getContentPosition = (alignment: string = 'center') => {
-    switch (alignment) {
-      case 'left':
-        return 'left-0 lg:left-[10%]';
-      case 'right':
-        return 'right-0 lg:right-[10%]';
-      default:
-        return 'left-1/2 -translate-x-1/2';
-    }
-  };
-
   return (
     <section
       ref={containerRef}
-      className={`relative w-full overflow-hidden ${heightClasses[height]}`}
+      className={`relative w-full overflow-hidden bg-black ${heightClasses[height]}`}
       style={durationStyle}
-      onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-      onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+      // onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+      // onMouseLeave={() => pauseOnHover && setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -339,115 +317,113 @@ export default function Banner({
             aria-hidden={index !== currentIndex}
             style={{ transformStyle: 'preserve-3d' }}
           >
-            {/* Background Image */}
-            <div className="absolute inset-0 overflow-hidden">
+            {/* Background Image Container */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black">
               <Image
                 src={slide.image}
                 alt={slide.title}
                 fill
                 priority={index === 0 || index === 1}
-                className={`object-cover ${
+                className={`object-contain ${
                   transition === 'kenBurns' && index === currentIndex ? 'animate-ken-burns' : ''
                 }`}
                 sizes="100vw"
                 quality={90}
               />
 
-              {/* Overlay */}
+              {/* ===== OVERLAY PRINCIPAL - Multiple couches pour une meilleure lisibilité ===== */}
+
+              {/* Couche 1: Overlay sombre uniforme */}
+              <div className="absolute inset-0 bg-black/0" aria-hidden="true" />
+
+              {/* Couche 4: Vignette effect (assombrit les coins) */}
               <div
-                className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70"
+                className="absolute inset-0"
                 style={{
-                  opacity: slide.overlayOpacity || 0.6,
-                  backgroundColor: slide.overlayColor,
+                  background:
+                    'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)',
                 }}
+                aria-hidden="true"
               />
 
-              {/* Gradient variant */}
+              {/* Gradient variant optionnel */}
               {variant === 'gradient' && (
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/50 to-transparent" />
               )}
             </div>
 
-            {/* Content */}
-            <div
-              className={`absolute inset-0 flex flex-col justify-center px-6 md:px-12 lg:px-0 w-full lg:w-auto lg:max-w-2xl ${getContentPosition(slide.alignment)} ${getAlignmentClasses(slide.alignment)}`}
-            >
-              <div className={getContentTransitionClasses(index)}>
-                {/* Subtitle Badge */}
-                {/* {slide.subtitle && (
-                  <span
-                    className={`inline-block bg-secondary-500/90 backdrop-blur-sm text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg transition-all duration-700 ${
-                      index === currentIndex
-                        ? 'opacity-100 translate-y-0 delay-200'
-                        : 'opacity-0 translate-y-4'
-                    }`}
-                  >
-                    {slide.subtitle}
-                  </span>
-                )} */}
-
-                {/* Title */}
-                <h2
-                  className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 font-heading leading-tight transition-all duration-700 ${
-                    index === currentIndex
-                      ? 'opacity-100 translate-y-0 delay-300'
-                      : 'opacity-0 translate-y-6'
-                  }`}
-                >
-                  {slide.title}
-                </h2>
-
-                {/* Description */}
-                <p
-                  className={`text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed max-w-xl transition-all duration-700 ${
-                    index === currentIndex
-                      ? 'opacity-100 translate-y-0 delay-400'
-                      : 'opacity-0 translate-y-6'
-                  }`}
-                >
-                  {slide.description}
-                </p>
-
-                {/* CTA Buttons */}
-                {/* <div
-                  className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${
-                    slide.alignment === 'center' ? 'justify-center' : ''
-                  } ${
-                    index === currentIndex
-                      ? 'opacity-100 translate-y-0 delay-500'
-                      : 'opacity-0 translate-y-6'
-                  }`}
-                >
-                  {slide.ctaText && slide.ctaLink && (
-                    <Link
-                      href={slide.ctaLink}
-                      className="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-secondary-500 text-white font-semibold rounded-xl hover:bg-secondary-600 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-secondary-500/25 transform hover:-translate-y-1 group"
+            {/* ===== CONTENU CENTRÉ ===== */}
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="w-full max-w-4xl mx-auto px-6 md:px-12 text-center">
+                <div className={getContentTransitionClasses(index)}>
+                  {/* Container avec fond semi-transparent pour le texte */}
+                  <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10">
+                    {/* Title avec ombre pour meilleure lisibilité */}
+                    <h2
+                      className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 font-heading leading-tight transition-all duration-700 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] ${
+                        index === currentIndex
+                          ? 'opacity-100 translate-y-0 delay-300'
+                          : 'opacity-0 translate-y-6'
+                      }`}
+                      style={{
+                        textShadow:
+                          '0 2px 4px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4)',
+                      }}
                     >
-                      {slide.ctaText}
-                      <svg
-                        className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                      {slide.title}
+                    </h2>
+
+                    {/* Ligne décorative */}
+                    <div
+                      className={`w-24 h-1 bg-gradient-to-r from-secondary-400 to-primary-400 mx-auto mb-6 rounded-full transition-all duration-700 ${
+                        index === currentIndex
+                          ? 'opacity-100 scale-x-100 delay-350'
+                          : 'opacity-0 scale-x-0'
+                      }`}
+                    />
+
+                    {/* Description avec ombre */}
+                    <p
+                      className={`text-base sm:text-lg md:text-xl text-white/95 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto transition-all duration-700 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${
+                        index === currentIndex
+                          ? 'opacity-100 translate-y-0 delay-400'
+                          : 'opacity-0 translate-y-6'
+                      }`}
+                      style={{
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)',
+                      }}
+                    >
+                      {slide.description}
+                    </p>
+
+                    {/* CTA Button */}
+                    {/* {slide.ctaText && slide.ctaLink && (
+                      <Link
+                        href={slide.ctaLink}
+                        className={`inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-secondary-400 hover:text-white transition-all duration-300 hover:scale-105 shadow-xl ${
+                          index === currentIndex
+                            ? 'opacity-100 translate-y-0 delay-500'
+                            : 'opacity-0 translate-y-6'
+                        }`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </Link>
-                  )}
-                  {slide.ctaSecondaryText && slide.ctaSecondaryLink && (
-                    <Link
-                      href={slide.ctaSecondaryLink}
-                      className="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300"
-                    >
-                      {slide.ctaSecondaryText}
-                    </Link>
-                  )}
-                </div> */}
+                        {slide.ctaText}
+                        <svg
+                          className="w-5 h-5 ml-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </Link>
+                    )} */}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -460,7 +436,7 @@ export default function Banner({
           <button
             onClick={goToPrev}
             disabled={isAnimating}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/25 transition-all duration-300 group border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/25 transition-all duration-300 group border border-white/30 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 shadow-lg"
             aria-label="Previous slide"
           >
             <svg
@@ -480,7 +456,7 @@ export default function Banner({
           <button
             onClick={goToNext}
             disabled={isAnimating}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/25 transition-all duration-300 group border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110"
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/25 transition-all duration-300 group border border-white/30 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 shadow-lg"
             aria-label="Next slide"
           >
             <svg
@@ -494,77 +470,6 @@ export default function Banner({
           </button>
         </>
       )}
-
-      {/* Dots Navigation */}
-      {/* {showDots && slides.length > 1 && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-3">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.id}
-              onClick={() => goToSlide(index)}
-              disabled={isAnimating}
-              className={`relative transition-all duration-500 overflow-hidden rounded-full disabled:cursor-not-allowed ${
-                index === currentIndex
-                  ? 'w-12 md:w-14 h-3 bg-white'
-                  : 'w-3 h-3 bg-white/40 hover:bg-white/70 hover:scale-125'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={index === currentIndex ? 'true' : 'false'}
-            >
-              
-              {showProgress && index === currentIndex && isPlaying && !isPaused && (
-                <span
-                  className="absolute inset-0 bg-secondary-500 rounded-full transition-transform origin-left"
-                  style={{
-                    transform: `scaleX(${progress / 100})`,
-                  }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
-      )} */}
-
-      {/* Play/Pause Button */}
-      {/* {autoPlay && (
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="absolute bottom-8 right-8 z-30 w-11 h-11 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/25 transition-all duration-300 border border-white/20 hover:scale-110"
-          aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-        >
-          {isPlaying && !isPaused ? (
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-            </svg>
-          ) : (
-            <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          )}
-        </button>
-      )} */}
-
-      {/* Slide Counter */}
-      <div className="absolute top-8 right-8 z-30 bg-white/10 backdrop-blur-md rounded-full px-5 py-2.5 text-white text-sm font-medium border border-white/20">
-        <span className="text-secondary-400 font-bold">
-          {String(currentIndex + 1).padStart(2, '0')}
-        </span>
-        <span className="mx-2 text-white/50">/</span>
-        <span className="text-white/70">{String(slides.length).padStart(2, '0')}</span>
-      </div>
-
-      {/* Transition Type Indicator (optional - for demo) */}
-      <div className="absolute top-8 left-8 z-30 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 text-white text-xs font-medium border border-white/20 uppercase tracking-wider">
-        {transition}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-8 z-30 hidden md:flex flex-col items-center space-y-3 text-white/60">
-        <span className="text-xs uppercase tracking-widest writing-vertical">Scroll</span>
-        <div className="w-px h-16 bg-white/20 relative overflow-hidden rounded-full">
-          <div className="absolute top-0 w-full h-6 bg-gradient-to-b from-white to-transparent animate-scroll-indicator" />
-        </div>
-      </div>
     </section>
   );
 }

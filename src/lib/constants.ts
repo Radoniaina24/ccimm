@@ -15,7 +15,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
   { label: 'Nos services', href: '/services' },
   { label: 'Investir', href: '/invest' },
   { label: 'Devenir membre', href: '/membership' },
-  { label: 'Contact', href: '/contact' },
+  // { label: 'Contact', href: '/contact' },
 ];
 
 export const SERVICES: Service[] = [

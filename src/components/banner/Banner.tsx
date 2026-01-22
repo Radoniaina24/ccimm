@@ -15,7 +15,7 @@ export default function Banner({
   height = 'large',
   variant = 'default',
   pauseOnHover = true,
-  transition = 'crossZoom',
+  transition = 'zoom',
   transitionDuration = 1000,
 }: BannerProps) {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -3,7 +3,7 @@ import { BannerSlide } from '@/types/banner';
 export const BANNER_SLIDES: BannerSlide[] = [
   {
     id: 'slide-1',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002325/1_lj3ibk.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146253/1_yjmrbp.jpg',
     title: "Chambre de Commerce et d'Industrie",
     subtitle: "Chambre de Commerce et d'Industrie",
     description:
@@ -17,7 +17,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-2',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002326/2_ghusj8.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146427/2_bjkpmp.jpg',
     title: 'Industrie, emploi et capital humain',
     subtitle: "Opportunités d'affaires",
     description:
@@ -29,7 +29,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-3',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002326/3_vtjugp.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146428/3_j5jf4k.jpg',
     title: 'Coopération économique et partenariats',
     subtitle: "Hub financier de l'océan Indien",
     description:
@@ -41,7 +41,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-4',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002325/4_oatkza.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146429/4_ihjktk.jpg',
     title: 'Innovation, numérique et technologies',
     subtitle: 'Devenir membre',
     description:
@@ -55,7 +55,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-5',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002326/5_mh52qt.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146430/5_inmlz7.jpg',
     title: 'Agriculture et développement durable',
     subtitle: 'Rencontres B2B et B2G',
     description:
@@ -67,7 +67,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-6',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002326/6_jqvfy7.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146429/6_ghqjwm.jpg',
     title: 'Investissement et croissance verte',
     subtitle: 'Rencontres B2B et B2G',
     description:
@@ -79,7 +79,7 @@ export const BANNER_SLIDES: BannerSlide[] = [
   },
   {
     id: 'slide-7',
-    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769002327/7_wqvtpi.jpg',
+    image: 'https://res.cloudinary.com/dx3xhdaym/image/upload/v1769146430/7_yt5miw.jpg',
     title: 'Commerce, logistique et échanges internationaux',
     subtitle: 'Rencontres B2B et B2G',
     description:
